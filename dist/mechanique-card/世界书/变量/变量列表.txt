@@ -1,0 +1,11 @@
+当前游戏状态变量：
+- 轮回: {{getvar::stat_data.轮回}} (当前时间循环次数)
+- 日: DAY {{getvar::stat_data.日}} (当前循环中的天数)
+- 剩余时间: {{getvar::stat_data.剩余时间}} (今日剩余行动次数)
+- POWER: {{getvar::stat_data.POWER}} / 999 (能量值)
+- 金钱: {{getvar::stat_data.金钱}} yeN
+- 位置: {{getvar::stat_data.位置}} (当前位置)
+- 曲风: {{getvar::stat_data.曲风}} (城市当前曲风)
+- 核心任务已解决: {{getvar::stat_data.核心任务已解决}}
+- 梅卡妮可_好感度: {{getvar::stat_data.梅卡妮可_好感度}}%
+- 梅卡妮可_忠诚心: {{getvar::stat_data.梅卡妮可_忠诚心}}%

@@ -1,0 +1,12 @@
+<update>
+stat_data.轮回 = 1
+stat_data.日 = 1
+stat_data.剩余时间 = 5
+stat_data.POWER = 100
+stat_data.金钱 = 500
+stat_data.位置 = "断头台城 · 中央广场"
+stat_data.曲风 = "none"
+stat_data.核心任务已解决 = false
+stat_data.梅卡妮可_好感度 = 42
+stat_data.梅卡妮可_忠诚心 = 88
+</update>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanique · 兔子与水星之谣</title>
+<style>
+  /* 全屏加载 Mechanique 应用 */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+  #root { width: 100%; height: 100%; }
+  /* SillyTavern 环境适配 — 隐藏酒馆UI，全屏Mechanique */
+  .loading { display: flex; align-items: center; justify-content: center; height: 100%;
+    color: #00E5FF; font-family: 'Orbitron', sans-serif; font-size: 1.5rem;
+    text-shadow: 0 0 10px #00E5FF; }
+</style>
+<!-- Load Mechanique CSS & JS from jsdelivr CDN -->
+<link rel="stylesheet" href="REPLACE_WITH_JSDELIVR_CSS_URL">
+</head>
+<body>
+<div id="root">
+  <div class="loading">MECHANIQUE // 加载中...</div>
+</div>
+<script type="module" src="REPLACE_WITH_JSDELIVR_JS_URL"></script>
+</body>
+</html>
