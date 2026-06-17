@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;600;700;900&family=Rajdhani:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Share+Tech+Mono&family=Saira+Condensed:wght@400;500;600;700&family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-display-theme, "Orbitron", sans-serif);
+  --font-body: var(--font-body-theme, "Noto Sans SC", sans-serif);
+  --font-mono: var(--font-mono-theme, "Rajdhani", monospace);
+}
+
+@layer base {
+  :root {
+    /* 默认主题：霓虹蓝紫 (Cyberpunk) */
+    --bg-deep: #060b14;
+    --bg-base: #0a0f1f;
+    --bg-card: #0d1525;
+    --bg-input: #0a1220;
+    --bg-overlay: rgba(0, 0, 0, 0.85);
+
+    --neon-blue: #4C9AFF;
+    --neon-blue-glow: rgba(76, 154, 255, 0.6);
+    --neon-purple: #7B5CFC;
+    --neon-purple-glow: rgba(123, 92, 252, 0.6);
+    --neon-pink: #E8477B;
+    --neon-pink-glow: rgba(232, 71, 123, 0.5);
+    --neon-cyan: #00E5FF;
+    --neon-cyan-glow: rgba(0, 229, 255, 0.6);
+    --neon-amber: #F5A623;
+    --neon-amber-glow: rgba(245, 166, 35, 0.5);
+    --neon-green: #4ADE80;
+    --neon-green-glow: rgba(74, 222, 128, 0.5);
+    --neon-red: #ff3366;
+
+    --text-primary: #EDF2FF;
+    --text-secondary: #9AAECA;
+    --text-dim: #5A6A8A;
+    
+    /* 默认配色方案：青蓝 */
+    --color-main: var(--neon-cyan);
+    --color-main-glow: var(--neon-cyan-glow);
+    --color-highlight: var(--neon-cyan);
+    --color-highlight-glow: var(--neon-cyan-glow);
+
+    --line-subtle: rgba(76, 154, 255, 0.2);
+    --line-neon: var(--color-main);
+    --line-active: var(--color-main);
+
+    --status-active: #4ADE80;
+    --status-warning: #F5A623;
+    --status-danger: #E8477B;
+    --status-completed: #4C9AFF;
+    --status-locked: #3A3F5C;
+
+    /* Frame and UI variables */
+    --ui-border-width: 1px;
+    --ui-border-color: var(--color-main);
+    --ui-border-radius: 4px;
+    --ui-shadow-glow: 0 0 8px var(--color-main-glow);
+    --hologram-display: block;
+    
+    --font-display-theme: "Orbitron", sans-serif;
+    --font-body-theme: "Noto Sans SC", sans-serif;
+    --font-mono-theme: "Rajdhani", monospace;
+  }
+
+  /* 主题：赛博黑客 */
+  :root[data-theme="cyberpunk"] {
+    /* Uses base defaults */
+  }
+
+  /* 主题：光耀晨曦 (Aurora · 梦灯花) */
+  :root[data-theme="aurora"] {
+    --font-display-theme: "Cormorant Garamond", "Georgia", "Noto Serif SC", serif;
+    --font-body-theme: "Noto Serif SC", "Georgia", serif;
+    --font-mono-theme: "Georgia", "Noto Serif SC", serif;
+
+    --bg-deep: #0a0618;
+    --bg-base: #140d2e;
+    --bg-card: rgba(22, 14, 48, 0.75);
+    --bg-input: rgba(10, 6, 24, 0.7);
+    --bg-overlay: rgba(5, 2, 18, 0.9);
+
+    --text-primary: #e8dcc8;
+    --text-secondary: #b8a890;
+    --text-dim: #7a6f58;
+
+    --color-main: #c9a045;
+    --color-main-glow: rgba(201, 160, 69, 0.12);
+    --color-highlight: #e0c060;
+    --color-highlight-glow: rgba(224, 192, 96, 0.15);
+
+    --neon-cyan: #c9a045;
+    --neon-cyan-glow: rgba(201, 160, 69, 0.1);
+    --neon-blue: #8b5cb8;
+    --neon-blue-glow: rgba(139, 92, 184, 0.08);
+    --neon-purple: #8b5cb8;
+    --neon-purple-glow: rgba(139, 92, 184, 0.08);
+    --neon-pink: #b85868;
+    --neon-pink-glow: rgba(184, 88, 104, 0.1);
+    --neon-amber: #c9a045;
+    --neon-amber-glow: rgba(201, 160, 69, 0.1);
+    --neon-green: #4a8058;
+    --neon-green-glow: rgba(74, 128, 88, 0.08);
+    --neon-red: #b85868;
+
+    --line-subtle: rgba(201, 160, 69, 0.12);
+    --line-neon: var(--color-main);
+    --line-active: var(--color-main);
+
+    --status-active: #4a8058;
+    --status-warning: #c08838;
+    --status-danger: #b85868;
+    --status-completed: #c9a045;
+    --status-locked: #4a3a28;
+
+    --ui-border-width: 2px;
+    --ui-border-color: #a08040;
+    --ui-border-radius: 3px;
+    --ui-shadow-glow: none;
+    --hologram-display: none;
+  }
+
+  /* 主题：铁锈铆钉 (Iron · 装甲核心6) */
+  :root[data-theme="iron"] {
+    --font-display-theme: "Saira Condensed", "Share Tech Mono", "Noto Sans SC", sans-serif;
+    --font-body-theme: "Noto Sans SC", "Noto Serif SC", sans-serif;
+    --font-mono-theme: "Share Tech Mono", "Courier New", monospace;
+
+    --bg-deep: #050508;
+    --bg-base: #0e0c10;
+    --bg-card: #141218;
+    --bg-input: #100c14;
+    --bg-overlay: rgba(5, 5, 8, 0.92);
+
+    --text-primary: #d0c8c0;
+    --text-secondary: #a09890;
+    --text-dim: #706860;
+
+    --color-main: #c03030;
+    --color-main-glow: rgba(192, 48, 48, 0.2);
+    --color-highlight: #e04840;
+    --color-highlight-glow: rgba(224, 72, 64, 0.25);
+
+    --neon-cyan: #c03838;
+    --neon-cyan-glow: rgba(192, 48, 48, 0.15);
+    --neon-blue: #b85030;
+    --neon-blue-glow: rgba(184, 80, 48, 0.12);
+    --neon-purple: #c04040;
+    --neon-purple-glow: rgba(192, 64, 64, 0.12);
+    --neon-pink: #e04840;
+    --neon-pink-glow: rgba(224, 72, 64, 0.18);
+    --neon-amber: #c87830;
+    --neon-amber-glow: rgba(200, 120, 48, 0.15);
+    --neon-green: #30a878;
+    --neon-green-glow: rgba(48, 168, 120, 0.1);
+    --neon-red: #c03030;
+
+    --line-subtle: rgba(192, 48, 48, 0.08);
+    --line-neon: var(--color-main);
+    --line-active: var(--color-highlight);
+
+    --status-active: #30a878;
+    --status-warning: #c87830;
+    --status-danger: #c03030;
+    --status-completed: #c04838;
+    --status-locked: #3a3028;
+
+    --ui-border-width: 2px;
+    --ui-border-color: #2a2528;
+    --ui-border-radius: 0px;
+    --ui-shadow-glow: none;
+    --hologram-display: none;
+  }
+
+  /* ── 铁锈铆钉 (Iron) 主题专属 ── */
+  :root[data-theme="iron"] .text-neon-logo {
+    color: #e04840;
+    text-shadow: 0 0 8px rgba(224,72,64,0.3);
+    font-family: "Share Tech Mono", monospace;
+  }
+  :root[data-theme="iron"] .neon-divider {
+    border-bottom: 2px solid var(--ui-border-color);
+    box-shadow: none;
+  }
+  :root[data-theme="iron"] .border-neon {
+    border: 2px solid var(--ui-border-color);
+    box-shadow: none;
+  }
+  :root[data-theme="iron"] .text-glow {
+    text-shadow: none;
+  }
+
+  @keyframes coralRise {
+    0%   { transform: translate(0, 0) scale(0.5); opacity: 0; }
+    10%  { opacity: 0.8; }
+    90%  { opacity: 0.3; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(1.5); opacity: 0; }
+  }
+
+  @keyframes ironScanH {
+    0%   { top: -2px; opacity: 0; }
+    5%   { opacity: 1; }
+    95%  { opacity: 1; }
+    100% { top: 102%; opacity: 0; }
+  }
+
+  @keyframes ironScanV {
+    0%   { left: 0%; opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.6; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  /* 主题：黄铜齿轮 (Gear · 蒸汽朋克) */
+  :root[data-theme="gear"] {
+    --font-display-theme: "Georgia", "Times New Roman", "Noto Serif SC", serif;
+    --font-body-theme: "Georgia", "Noto Serif SC", serif;
+    --font-mono-theme: "Courier New", monospace;
+    --bg-deep:#0a0604;--bg-base:#1a1410;--bg-card:rgba(30,18,10,0.7);--bg-input:rgba(20,10,4,0.7);--bg-overlay:rgba(10,6,4,0.92);
+    --text-primary:#c8b898;--text-secondary:#988870;--text-dim:#706050;
+    --color-main:#b8860b;--color-main-glow:rgba(184,134,11,0.15);--color-highlight:#d4a030;--color-highlight-glow:rgba(212,160,48,0.2);
+    --neon-cyan:#b8860b;--neon-cyan-glow:rgba(184,134,11,0.1);--neon-blue:#b8860b;--neon-blue-glow:rgba(184,134,11,0.08);--neon-purple:#a07030;--neon-purple-glow:rgba(160,112,48,0.08);--neon-pink:#c86030;--neon-pink-glow:rgba(200,96,48,0.1);--neon-amber:#d4a030;--neon-amber-glow:rgba(212,160,48,0.1);--neon-green:#6a9060;--neon-green-glow:rgba(106,144,96,0.08);--neon-red:#c04030;
+    --line-subtle:rgba(184,134,11,0.1);--line-neon:#b8860b;--line-active:#d4a030;
+    --status-active:#6a9060;--status-warning:#c8a040;--status-danger:#c04030;--status-completed:#b8860b;--status-locked:#4a3820;
+    --ui-border-width:2px;--ui-border-color:#8a5a08;--ui-border-radius:0px;--ui-shadow-glow:none;--hologram-display:none;
+  }
+  :root[data-theme="gear"] .text-neon-logo{color:#d4a030;text-shadow:0 2px 4px rgba(0,0,0,0.6);font-family:"Georgia",serif;font-style:italic;}
+  :root[data-theme="gear"] .neon-divider{border-bottom:2px solid #8a5a08;box-shadow:none;}
+  :root[data-theme="gear"] .border-neon{border:2px solid #8a5a08;box-shadow:none;}
+  :root[data-theme="gear"] .text-glow{text-shadow:none;}
+  @keyframes gearSpinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+  /* 主题：圣骸遗刻 (Relic · 战锤40K帝国) */
+  :root[data-theme="relic"] {
+    --font-display-theme: "Orbitron", "Cinzel", "Georgia", sans-serif;
+    --font-body-theme: "Cinzel", "Noto Serif SC", serif;
+    --font-mono-theme: "Orbitron", "Courier New", monospace;
+
+    --bg-deep: #f0ece4;
+    --bg-base: #f5f2ec;
+    --bg-card: rgba(248,244,236,0.9);
+    --bg-input: rgba(255,252,248,0.85);
+    --bg-overlay: rgba(26,20,16,0.4);
+
+    --text-primary: #2a2018;
+    --text-secondary: #4a3a28;
+    --text-dim: #8a7a68;
+
+    --color-main: #a08050;
+    --color-main-glow: rgba(160,128,80,0.12);
+    --color-highlight: #d4c090;
+    --color-highlight-glow: rgba(212,192,144,0.15);
+
+    --neon-cyan: #a08050;
+    --neon-cyan-glow: rgba(160,128,80,0.1);
+    --neon-blue: #a08050;
+    --neon-blue-glow: rgba(160,128,80,0.08);
+    --neon-purple: #8a6040;
+    --neon-purple-glow: rgba(138,96,64,0.08);
+    --neon-pink: #c04030;
+    --neon-pink-glow: rgba(192,64,48,0.1);
+    --neon-amber: #f0a830;
+    --neon-amber-glow: rgba(240,168,48,0.15);
+    --neon-green: #7a9060;
+    --neon-green-glow: rgba(122,144,96,0.08);
+    --neon-red: #c04030;
+
+    --line-subtle: rgba(160,128,80,0.15);
+    --line-neon: #a08050;
+    --line-active: #d4c090;
+
+    --status-active: #7a9060;
+    --status-warning: #f0a830;
+    --status-danger: #c04030;
+    --status-completed: #a08050;
+    --status-locked: #c0b8a8;
+
+    --ui-border-width: 1px;
+    --ui-border-color: #a08050;
+    --ui-border-radius: 0px;
+    --ui-shadow-glow: none;
+    --hologram-display: none;
+  }
+
+  :root[data-theme="relic"] .text-neon-logo {
+    color: #a08050;
+    text-shadow: none;
+    font-family: "Orbitron", sans-serif;
+  }
+  :root[data-theme="relic"] .neon-divider {
+    border-bottom: 1px solid #a08050;
+    box-shadow: none;
+  }
+  :root[data-theme="relic"] .border-neon {
+    border: 1px solid #a08050;
+    box-shadow: none;
+  }
+  :root[data-theme="relic"] .text-glow {
+    text-shadow: none;
+  }
+
+  @keyframes candleFlicker{0%,100%{transform:scaleY(1)scaleX(1)}25%{transform:scaleY(1.15)scaleX(0.85)}50%{transform:scaleY(0.85)scaleX(1.15)}75%{transform:scaleY(1.1)scaleX(0.9)}}
+  @keyframes holyReveal{0%,80%{clip-path:inset(0 100% 0 0)}100%{clip-path:inset(0 0 0 0)}}
+
+  /* 主题：RPG像素 (Pixel · 勇者斗恶龙风格) */
+  :root[data-theme="pixel"] {
+    --font-display-theme: "Press Start 2P", "Courier New", monospace;
+    --font-body-theme: "Press Start 2P", "Courier New", monospace;
+    --font-mono-theme: "Press Start 2P", "Courier New", monospace;
+
+    --bg-deep: #080810;
+    --bg-base: #0c1428;
+    --bg-card: #101830;
+    --bg-input: #0c1428;
+    --bg-overlay: rgba(8,8,16,0.92);
+
+    --text-primary: #e0d8c8;
+    --text-secondary: #a0a8c0;
+    --text-dim: #6870a0;
+
+    --color-main: #5078e0;
+    --color-main-glow: transparent;
+    --color-highlight: #f0c848;
+    --color-highlight-glow: transparent;
+
+    --neon-cyan: #5078e0;
+    --neon-cyan-glow: transparent;
+    --neon-blue: #5078e0;
+    --neon-blue-glow: transparent;
+    --neon-purple: #8868d0;
+    --neon-purple-glow: transparent;
+    --neon-pink: #e04030;
+    --neon-pink-glow: transparent;
+    --neon-amber: #f0c848;
+    --neon-amber-glow: transparent;
+    --neon-green: #48a840;
+    --neon-green-glow: transparent;
+    --neon-red: #e04030;
+
+    --line-subtle: rgba(80,120,224,0.3);
+    --line-neon: #5078e0;
+    --line-active: #f0c848;
+
+    --status-active: #48a840;
+    --status-warning: #f0c848;
+    --status-danger: #e04030;
+    --status-completed: #5078e0;
+    --status-locked: #304070;
+
+    --ui-border-width: 4px;
+    --ui-border-color: #e8e8f0;
+    --ui-border-radius: 0px;
+    --ui-shadow-glow: none;
+    --hologram-display: none;
+  }
+
+  /* ── 像素主题专属 ── */
+  :root[data-theme="pixel"] .text-neon-logo {
+    color: #f0c848;
+    text-shadow: 2px 2px 0 #000;
+    font-family: "Press Start 2P", monospace;
+  }
+  :root[data-theme="pixel"] .neon-divider {
+    border-bottom: 4px solid #5078e0;
+    box-shadow: none;
+  }
+  :root[data-theme="pixel"] .border-neon {
+    border: 4px solid #e8e8f0;
+    box-shadow: none;
+  }
+  :root[data-theme="pixel"] .text-glow {
+    text-shadow: none;
+  }
+
+  @keyframes pixelBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* 像素RPG标题浮动 */
+  :root[data-theme="pixel"] .glitch-title-active::before {
+    display: none;
+  }
+  :root[data-theme="pixel"] .pixel-title-float {
+    animation: pixelTitleFloat 2.5s ease-in-out infinite;
+    display: inline-block;
+  }
+  @keyframes pixelTitleFloat {
+    0%, 100% { transform: translateY(0); }
+    30%  { transform: translateY(-3px); }
+    50%  { transform: translateY(-6px); }
+    70%  { transform: translateY(-3px); }
+  }
+
+  /* 像素闪烁光标 */
+  :root[data-theme="pixel"] .pixel-cursor::after {
+    content: ' ▌';
+    animation: pixelBlink 1s step-end infinite;
+    color: #f0c848;
+  }
+
+  /* 主题：羊皮纸 (Parchment) */
+  :root[data-theme="parchment"] {
+    --font-display-theme: "Times New Roman", serif;
+    --font-body-theme: "Georgia", serif;
+    --font-mono-theme: "Courier", monospace;
+    
+    --bg-deep: #f4e8c6;
+    --bg-base: #eaddb6;
+    --bg-card: #e0d0a2;
+    --bg-input: #f8eccf;
+    --text-primary: #3c2a1e;
+    --text-secondary: #5e4a3d;
+    --text-dim: #8b735c;
+    
+    --color-main: #b84c2f;
+    --color-main-glow: transparent;
+    
+    --neon-blue: #2a5b84;
+    --neon-purple: #5c3b6f;
+    --neon-pink: #9a2b4b;
+    --neon-cyan: #1d7b7b;
+    --neon-amber: #c8761a;
+    --neon-green: #3a7537;
+    
+    --ui-border-radius: 8px;
+    --ui-border-width: 2px;
+    --ui-border-color: #8b735c;
+    --ui-shadow-glow: 2px 2px 5px rgba(0,0,0,0.2);
+    --hologram-display: none;
+
+    --status-active: #3a7537;
+    --status-danger: #9a2b4b;
+  }
+  
+  /* 配色方案组合 (Only relevant for cyberpunk/pixel, overridden somewhat by parchment) */
+  :root[data-color="purple-pink"] {
+    --color-main: var(--neon-purple);
+    --color-highlight: var(--neon-pink);
+    --line-neon: var(--neon-purple);
+  }
+  :root[data-color="gold"] {
+    --color-main: var(--neon-amber);
+    --color-highlight: var(--neon-amber);
+    --line-neon: var(--neon-amber);
+  }
+  :root[data-color="white-blue"] {
+    --color-main: var(--text-primary);
+    --color-highlight: var(--neon-blue);
+    --line-neon: var(--text-primary);
+  }
+
+  body {
+    background-color: #000;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .text-neon-logo {
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+    color: white;
+  }
+  
+  .border-neon {
+    border-width: var(--ui-border-width);
+    border-color: var(--ui-border-color);
+    box-shadow: var(--ui-shadow-glow);
+    border-radius: var(--ui-border-radius);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 8px var(--color-main-glow);
+  }
+
+  .neon-divider {
+    border-bottom: var(--ui-border-width) solid var(--color-main);
+    box-shadow: var(--ui-shadow-glow);
+  }
+  
+  .neon-divider-animated {
+    border-bottom: var(--ui-border-width) solid var(--color-main);
+    box-shadow: var(--ui-shadow-glow);
+    animation: line-flicker 3s infinite;
+  }
+
+  /* 滚动条 */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-deep);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-main);
+    border-radius: var(--ui-border-radius);
+  }
+}
+
+/* Animations */
+@keyframes line-flicker {
+  0%, 95%, 97%, 100% { opacity: 1; }
+  96% { opacity: 0.3; }
+  98% { opacity: 0.7; }
+}
+
+@keyframes text-glitch {
+  0%, 92%, 100% { transform: translateX(0); }
+  93% { transform: translateX(-2px); }
+  94% { transform: translateX(2px); }
+  95% { transform: translateX(-1px); }
+}
+
+@keyframes text-glitch-heavy {
+  0%, 80%, 100% { transform: translateX(0); text-shadow: none; }
+  82% { transform: translateX(-3px); text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-cyan); }
+  85% { transform: translateX(3px); text-shadow: -2px 0 var(--neon-pink), 2px 0 var(--neon-cyan); }
+  88% { transform: translateX(-2px); text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-cyan); }
+  90% { transform: translateX(2px); text-shadow: none; }
+}
+
+@keyframes noise-anim {
+  0% { clip: rect(15px, 9999px, 10px, 0); }
+  5% { clip: rect(85px, 9999px, 33px, 0); }
+  10% { clip: rect(56px, 9999px, 98px, 0); }
+  15% { clip: rect(23px, 9999px, 5px, 0); }
+  20% { clip: rect(74px, 9999px, 72px, 0); }
+  25% { clip: rect(2px, 9999px, 46px, 0); }
+  30% { clip: rect(67px, 9999px, 95px, 0); }
+  35% { clip: rect(42px, 9999px, 27px, 0); }
+  40% { clip: rect(81px, 9999px, 21px, 0); }
+  45% { clip: rect(10px, 9999px, 93px, 0); }
+  50% { clip: rect(35px, 9999px, 4px, 0); }
+  100% { clip: rect(0, 0, 0, 0); }
+}
+
+@keyframes hologram-sweep {
+  0% { transform: rotate(25deg) translateY(-80%); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { transform: rotate(25deg) translateY(80%); opacity: 0; }
+}
+
+@keyframes dash {
+  from { stroke-dashoffset: 150; }
+  to { stroke-dashoffset: -150; }
+}
+
+@keyframes ecg {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.glitch-text {
+  animation: text-glitch 4s infinite;
+}
+
+.glitch-text-heavy {
+  animation: text-glitch-heavy 3s infinite;
+  display: inline-block;
+}
+
+.glitch-title {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-title-active::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 var(--color-main);
+  top: 0;
+  color: var(--neon-pink);
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim 4s infinite linear alternate-reverse;
+  pointer-events: none;
+}
+
+.hologram-container {
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--ui-border-radius);
+}
+
+.hologram-sweep {
+  display: var(--hologram-display);
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 20px;
+  background: linear-gradient(to bottom, transparent, var(--color-main), transparent);
+  box-shadow: 0 0 20px var(--color-main);
+  opacity: 0;
+  animation: hologram-sweep 4s infinite linear;
+  pointer-events: none;
+}
+
+/* ── 光耀晨曦 (Aurora) 主题专属 ── */
+/* 用实色边框替代荧光，用彩窗渐变色条件为装饰 */
+
+:root[data-theme="aurora"] .text-neon-logo {
+  color: #dfc890;
+  text-shadow: none;
+}
+
+:root[data-theme="aurora"] .neon-divider {
+  border-bottom: 1px solid rgba(90,74,48,0.3);
+  box-shadow: none;
+}
+
+:root[data-theme="aurora"] .neon-divider-animated {
+  border-bottom-color: rgba(90,74,48,0.4);
+  box-shadow: none;
+}
+
+:root[data-theme="aurora"] .border-neon {
+  border: 1px solid rgba(90,74,48,0.4);
+  box-shadow: none;
+}
+
+:root[data-theme="aurora"] .text-glow {
+  text-shadow: none;
+}
+
+/* 彩窗渐变装饰色条 */
+.stained-strip {
+  height: 3px;
+  background: linear-gradient(90deg,
+    #7b4fa0, #b85868, #c9a045, #4a8058, #4a60a8, #7b4fa0);
+  opacity: 0.55;
+}
+
+@keyframes auroraPetalFall {
+  0%   { transform: translate(0, -20px) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.7; }
+  80%  { opacity: 0.4; }
+  100% { transform: translate(var(--drift), 110vh) rotate(540deg); opacity: 0; }
+}
+
+@keyframes aurora-line-flicker {
+  0%, 95%, 97%, 100% { opacity: 0.8; }
+  96% { opacity: 0.4; }
+  98% { opacity: 0.6; }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Mechanique Terminal",
+  "description": "游戏《梅卡妮可 - 兔子与水星之谣》Web终端面板",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
